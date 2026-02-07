@@ -103,6 +103,51 @@ end;
         (kEnd)))
     (kEnd))))
 ===
+Inline For-in loop Variables
+===
+procedure Test;
+begin
+  for var item in AList do
+  begin
+  end;
+  for var value: integer in AList do
+  begin
+  end;
+end;
+---
+(root
+(defProc
+  (declProc
+    (kProcedure)
+    (identifier))
+  (block
+    (kBegin)
+    (foreach
+      (kFor)
+      (varAssignDef
+        (kVar)
+        (identifier))
+      (kIn)
+      (identifier)
+      (kDo)
+      (block
+        (kBegin)
+        (kEnd)))
+    (foreach
+      (kFor)
+      (varAssignDef
+        (kVar)
+        (identifier)
+        (typeref
+          (identifier)))
+      (kIn)
+      (identifier)
+      (kDo)
+      (block
+        (kBegin)
+        (kEnd)))
+    (kEnd))))
+===
 Inline Variables and Anonymous function
 ===
 procedure Test;

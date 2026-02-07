@@ -534,8 +534,17 @@
           "type": "FIELD",
           "name": "iterator",
           "content": {
-            "type": "SYMBOL",
-            "name": "_expr"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "varAssignDef"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            ]
           }
         },
         {
@@ -1519,8 +1528,17 @@
           "type": "FIELD",
           "name": "iterator",
           "content": {
-            "type": "SYMBOL",
-            "name": "_expr"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "varAssignDef"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            ]
           }
         },
         {
