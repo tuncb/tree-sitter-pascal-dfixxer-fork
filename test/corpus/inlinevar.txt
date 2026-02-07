@@ -148,6 +148,40 @@ end;
         (kEnd)))
     (kEnd))))
 ===
+Inline Block Constants
+===
+procedure Test;
+begin
+  const LValue = 42;
+  const LTyped: Integer = 7;
+end;
+---
+(root
+ (defProc
+  (declProc
+   (kProcedure)
+   (identifier))
+  (block
+   (kBegin)
+   (constDef
+    (constAssignDef
+     (kConst)
+     (identifier))
+    (defaultValue
+     (kEq)
+     (literalNumber)))
+   (constDef
+    (constAssignDef
+     (kConst)
+     (identifier)
+     (type
+      (typeref
+       (identifier))))
+    (defaultValue
+     (kEq)
+     (literalNumber)))
+   (kEnd))))
+===
 Inline Variables and Anonymous function
 ===
 procedure Test;

@@ -246,6 +246,7 @@ function statements(trailing) {
 			...semicolon,
 			seq($.assignment, ...semicolon),
 			seq($.varDef, ...semicolon),
+			seq($.constDef, ...semicolon),
 			alias($[rn('statement')], $.statement),
 			alias($[rn('if')],        $.if),
 			alias($[rn('ifElse')],    $.ifElse),
@@ -356,11 +357,17 @@ module.exports = grammar({
 				':',
 				field('type', $.typeref)
 			))),
+		constAssignDef:        $ => seq($.kConst, $.identifier,
+			optional(seq(
+				':',
+				field('type', $.type)
+			))),
+		constDef:        $ => seq($.constAssignDef, field('defaultValue', $.defaultValue)),
 		varDef:          $ => seq($.kVar, $.identifier, ':', field('type', $.typeref)),
 		label:           $ => seq($.identifier, ':'),
 		caseLabel:       $ => seq(delimited1(choice($._expr, $.range)), ':'),
 
-		_statements:     $ => repeat1(choice($.varDef, $._statement,  $.label)),
+		_statements:     $ => repeat1(choice($.varDef, $.constDef, $._statement,  $.label)),
 		_statementsTr:   $ => seq(
 			repeat(choice($._statement, $.label)),
 			choice(tr($,'_statement'), $._statement)
