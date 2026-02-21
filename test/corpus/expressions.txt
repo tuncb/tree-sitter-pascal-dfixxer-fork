@@ -194,6 +194,36 @@ end;
       (kEnd))))
 
 ===
+Call args with `<`
+===
+
+procedure Main;
+begin
+  Assert(a < Length(b), 'msg');
+end;
+
+---
+
+(root
+  (defProc
+    (declProc (kProcedure) (identifier))
+    (block
+      (kBegin)
+      (statement
+        (exprCall
+          (identifier)
+          (exprArgs
+            (exprBinary
+              (identifier)
+              (kLt)
+              (exprCall
+                (identifier)
+                (exprArgs
+                  (identifier))))
+            (literalString))))
+      (kEnd))))
+
+===
 Subscripts
 ===
 

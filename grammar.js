@@ -288,6 +288,7 @@ module.exports = grammar({
 		...enable_if(rtti,
 			[ $.declProcFwd ], [ $.declVars], [ $.declConsts ], [ $.declTypes]
 		),
+		...enable_if(templates, [$._ref, $._typeref]),
 		// `procedure (` could be a declaration of an anonymous procedure or
 		// the call of a function named "procedure" (which doesn't actually
 		// make sense, but for Treesitter it does), so we need another conflict
@@ -477,7 +478,7 @@ module.exports = grammar({
 		// template. Then the existing node is simply "renamed". Because of
 		// this, we can't have an extra node in only one of the branches.
 		//
-		exprTpl:         $ => op.args(5, $._ref, $.kLt, delimited1($._expr, ',', 5),  $.kGt),
+		exprTpl:         $ => op.args(5, $._ref, $.kLt, delimited1(prec.dynamic(1, $._typeref), ',', 5),  $.kGt),
 		exprSubscript:   $ => op.args(5, $._ref, '[',   $.exprArgs,  ']'  ),
 		exprCall:        $ => op.args(5, $._ref, '(',   optional($.exprArgs), ')'  ),
 

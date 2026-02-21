@@ -2995,8 +2995,12 @@
                           "type": "SEQ",
                           "members": [
                             {
-                              "type": "SYMBOL",
-                              "name": "_expr"
+                              "type": "PREC_DYNAMIC",
+                              "value": 1,
+                              "content": {
+                                "type": "SYMBOL",
+                                "name": "_typeref"
+                              }
                             },
                             {
                               "type": "STRING",
@@ -3012,8 +3016,12 @@
                   ]
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_expr"
+                  "type": "PREC_DYNAMIC",
+                  "value": 1,
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_typeref"
+                  }
                 }
               ]
             }
@@ -9723,10 +9731,15 @@
     ],
     [
       "declTypes"
+    ],
+    [
+      "_ref",
+      "_typeref"
     ]
   ],
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

@@ -4255,71 +4255,19 @@
             "named": false
           },
           {
-            "type": "exprBinary",
-            "named": true
-          },
-          {
-            "type": "exprBrackets",
-            "named": true
-          },
-          {
-            "type": "exprCall",
-            "named": true
-          },
-          {
-            "type": "exprDot",
-            "named": true
-          },
-          {
-            "type": "exprParens",
-            "named": true
-          },
-          {
-            "type": "exprSubscript",
-            "named": true
-          },
-          {
-            "type": "exprTpl",
-            "named": true
-          },
-          {
-            "type": "exprUnary",
-            "named": true
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "inherited",
+            "type": "typerefDot",
             "named": true
           },
           {
-            "type": "kFalse",
+            "type": "typerefPtr",
             "named": true
           },
           {
-            "type": "kNil",
-            "named": true
-          },
-          {
-            "type": "kSpecialize",
-            "named": true
-          },
-          {
-            "type": "kTrue",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "literalNumber",
-            "named": true
-          },
-          {
-            "type": "literalString",
+            "type": "typerefTpl",
             "named": true
           }
         ]
@@ -8412,7 +8360,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "identifier",
@@ -9040,6 +8989,7 @@
   },
   {
     "type": "pp",
-    "named": true
+    "named": true,
+    "extra": true
   }
 ]
